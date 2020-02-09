@@ -1,0 +1,33 @@
+# /etc/conf.d/growthd: config file for /etc/init.d/growthd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/growthcore/growth.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/growthd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/growthd.pid"
+
+# Where to write growthd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/growthd"
+
+# User and group to own growthd process
+#BITCOIND_USER="growthcore"
+#BITCOIND_GROUP="growthcore"
+
+# Path to growthd executable
+#BITCOIND_BIN="/usr/bin/growthd"
+
+# Nice value to run growthd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS="-disablewallet"
+
+# The timeout in seconds OpenRC will wait for bitcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+BITCOIND_SIGTERM_TIMEOUT=60

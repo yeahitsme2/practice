@@ -1,0 +1,22 @@
+[Unit]
+Description=Growth's distributed currency daemon
+After=network.target
+
+[Service]
+User=growthcore
+Group=growthcore
+
+Type=forking
+PIDFile=/var/lib/growthd/growthd.pid
+ExecStart=/usr/bin/growthd -daemon -pid=/var/lib/growthd/growthd.pid \
+-conf=/etc/growthcore/growth.conf -datadir=/var/lib/growthd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
